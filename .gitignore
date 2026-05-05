@@ -1,0 +1,12 @@
+node_modules
+.env
+package-lock.json
+dist
+coverage
+*.log
+.idea
+.vscode
+.DS_Store
+*.tsbuildinfo
+# Optional: Ignore build artifacts
+build

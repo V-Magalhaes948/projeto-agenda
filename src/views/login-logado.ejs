@@ -1,0 +1,75 @@
+<%- include('./includes/head'); %>
+<%- include('./includes/nav'); %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8">
+      <div class="bemvindo-card text-center">
+
+        <!-- Avatar com inicial do e-mail -->
+        <div class="avatar-circulo">
+          <%= user.email.charAt(0).toUpperCase() %>
+        </div>
+
+        <!-- Título -->
+        <h1 class="bemvindo-titulo">Bem-vindo<span style="color:var(--cor-acento)">.</span></h1>
+        <p class="bemvindo-subtitulo">Você está autenticado e pronto para usar a agenda.</p>
+
+        <!-- Badge e-mail -->
+        <div>
+          <span class="email-badge">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <%= user.email %>
+          </span>
+        </div>
+
+        <div class="bemvindo-divisor" style="margin-top:2rem;"></div>
+
+        <!-- Ações rápidas -->
+        <p class="acoes-titulo">O que você quer fazer?</p>
+        <div class="acoes-grid">
+
+          <a href="/contact/index" class="acao-btn">
+            <svg viewBox="0 0 24 24">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <line x1="19" y1="8" x2="19" y2="14"/>
+              <line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+            Cadastrar contato
+          </a>
+
+          <a href="/" class="acao-btn">
+            <svg viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Ver agenda
+          </a>
+
+          <a href="/login/logout" class="acao-btn">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Sair da conta
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('./includes/footer'); %>

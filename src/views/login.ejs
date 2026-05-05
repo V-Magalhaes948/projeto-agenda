@@ -1,0 +1,135 @@
+<%- include('./includes/head'); %>
+<%- include('./includes/nav'); %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-8">
+      <div class="login-card">
+
+        <!-- Cabeçalho -->
+        <h1 class="login-titulo">Bem-vindo<span style="color:var(--cor-acento)">.</span></h1>
+        <p class="login-subtitulo">Faça login ou crie sua conta abaixo.</p>
+
+        <%- include('./includes/messages'); %>
+
+        <div class="login-divisor"></div>
+
+        <!-- Painéis lado a lado -->
+        <div class="d-flex flex-column flex-lg-row gap-0 align-items-stretch">
+
+          <!-- ── Cadastro ── -->
+          <div class="flex-grow-1">
+            <div class="form-painel">
+
+              <div class="painel-header">
+                <div class="painel-icone cadastro">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <line x1="19" y1="8" x2="19" y2="14"/>
+                    <line x1="22" y1="11" x2="16" y2="11"/>
+                  </svg>
+                </div>
+                <h4 class="painel-titulo">Criar Conta</h4>
+              </div>
+              <p class="painel-desc">Se você ainda não tem conta, preencha abaixo.</p>
+
+              <form class="form-cadastro" action="/login/register" method="POST" style="display:flex;flex-direction:column;flex-grow:1;">
+                <input type="hidden" name="_csrf" value=<%= csrfToken%>>
+
+                <div class="campo-mb">
+                  <label class="campo-label" for="cadastroEmail">E-mail</label>
+                  <input class="campo-input" type="email" name="email" id="cadastroEmail" placeholder="seu@email.com">
+                  <span class="campo-hint">Seus dados estarão seguros.</span>
+                </div>
+
+                <div class="campo-mb">
+                  <label class="campo-label" for="cadastroSenha">Senha</label>
+                  <input class="campo-input" type="password" name="password" id="cadastroSenha" placeholder="••••••••">
+                </div>
+
+                <label class="campo-check">
+                  <input type="checkbox" id="cadastroCheck">
+                  Aceito os termos de uso
+                </label>
+
+                <button type="submit" class="btn-cadastrar">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <line x1="19" y1="8" x2="19" y2="14"/>
+                    <line x1="22" y1="11" x2="16" y2="11"/>
+                  </svg>
+                  Cadastrar
+                </button>
+              </form>
+
+            </div>
+          </div>
+
+          <!-- Separador -->
+          <div class="paineis-separador">
+            <div class="sep-linha"></div>
+            <span class="sep-ou">ou</span>
+            <div class="sep-linha"></div>
+          </div>
+
+          <!-- ── Login ── -->
+          <div class="flex-grow-1">
+            <div class="form-painel">
+
+              <div class="painel-header">
+                <div class="painel-icone login">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                    <polyline points="10 17 15 12 10 7"/>
+                    <line x1="15" y1="12" x2="3" y2="12"/>
+                  </svg>
+                </div>
+                <h4 class="painel-titulo">Entrar</h4>
+              </div>
+              <p class="painel-desc">Se você já possui conta, faça login abaixo.</p>
+
+              <form class="form-login" action="/login/login" method="POST" style="display:flex;flex-direction:column;flex-grow:1;">
+                <input type="hidden" name="_csrf" value=<%= csrfToken%>>
+
+                <div class="campo-mb">
+                  <label class="campo-label" for="loginEmail">E-mail</label>
+                  <input class="campo-input" type="email" name="email" id="loginEmail" placeholder="seu@email.com">
+                  <span class="campo-hint">Entre com sua conta cadastrada.</span>
+                </div>
+
+                <div class="campo-mb">
+                  <label class="campo-label" for="loginSenha">Senha</label>
+                  <input class="campo-input" type="password" name="password" id="loginSenha" placeholder="••••••••">
+                </div>
+
+                <label class="campo-check">
+                  <input type="checkbox" id="loginCheck">
+                  Lembrar login
+                </label>
+
+                <button type="submit" class="btn-entrar">
+                  <svg viewBox="0 0 24 24">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                    <polyline points="10 17 15 12 10 7"/>
+                    <line x1="15" y1="12" x2="3" y2="12"/>
+                  </svg>
+                  Entrar
+                </button>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-2"></div>
+  </div>
+</div>
+
+<%- include('./includes/footer'); %>

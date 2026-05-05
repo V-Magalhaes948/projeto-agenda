@@ -1,0 +1,60 @@
+<% if (errors.length > 0) { %>
+  <div class="row">
+    <div class="col my-3 alerta-wrapper">
+      <div class="alerta-box alerta-erro" role="alert">
+
+        <span class="alerta-icone">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+        </span>
+
+        <div class="alerta-mensagens">
+          <% errors.forEach((error) => { %>
+            <p><%= error %></p>
+          <% }); %>
+        </div>
+
+        <button class="alerta-fechar" onclick="this.closest('.alerta-wrapper').remove()" aria-label="Fechar">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+<% } %>
+
+<% if (success.length > 0) { %>
+  <div class="row">
+    <div class="col my-3 alerta-wrapper">
+      <div class="alerta-box alerta-sucesso" role="alert">
+
+        <span class="alerta-icone">
+          <svg viewBox="0 0 24 24">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </span>
+
+        <div class="alerta-mensagens">
+          <% success.forEach((msg) => { %>
+            <p><%= msg %></p>
+          <% }); %>
+        </div>
+
+        <button class="alerta-fechar" onclick="this.closest('.alerta-wrapper').remove()" aria-label="Fechar">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+
+      </div>
+    </div>
+  </div>
+<% } %>

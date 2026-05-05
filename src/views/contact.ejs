@@ -1,0 +1,134 @@
+<%- include('./includes/head'); %>
+<%- include('./includes/nav'); %>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="contato-card">
+
+        <!-- Cabeçalho -->
+        <div class="contato-header">
+          <div class="contato-icone">
+            <% if (contato._id) { %>
+            <svg viewBox="0 0 24 24">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            <% } else { %>
+            <svg viewBox="0 0 24 24">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <line x1="19" y1="8" x2="19" y2="14"/>
+              <line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+            <% } %>
+          </div>
+          <h2 class="contato-titulo">
+            <%= contato._id ? 'Editar Contato' : 'Novo Contato' %><span style="color:var(--cor-acento)">.</span>
+          </h2>
+        </div>
+        <p class="contato-subtitulo">
+          <%= contato._id ? 'Atualize as informações do contato abaixo.' : 'Preencha os dados para cadastrar um novo contato.' %>
+        </p>
+
+        <%- include('./includes/messages'); %>
+
+        <div class="contato-divisor"></div>
+
+        <!-- Formulário -->
+        <% if (contato._id) { %>
+          <form class="form-contact" action="/contact/update/<%= contato._id %>" method="POST">
+        <% } else { %>
+          <form class="form-contact" action="/contact/create" method="POST">
+        <% } %>
+
+          <input type="hidden" name="_csrf" value=<%= csrfToken %>>
+
+          <!-- Nome + Sobrenome lado a lado -->
+          <div class="campos-duplos">
+            <div class="campo-grupo">
+              <label class="campo-label" for="nome">Nome</label>
+              <input
+                class="campo-input"
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Ex: João"
+                value="<%= contato ? contato.nome : '' %>"
+              >
+            </div>
+            <div class="campo-grupo">
+              <label class="campo-label" for="sobrenome">Sobrenome</label>
+              <input
+                class="campo-input"
+                type="text"
+                id="sobrenome"
+                name="sobrenome"
+                placeholder="Ex: Silva"
+                value="<%= contato ? contato.sobrenome : '' %>"
+              >
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="telefone">Telefone</label>
+            <input
+              class="campo-input"
+              type="text"
+              id="telefone"
+              name="telefone"
+              placeholder="(11) 99999-9999"
+              value="<%= contato ? contato.telefone : '' %>"
+            >
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="email">E-mail</label>
+            <input
+              class="campo-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="exemplo@email.com"
+              value="<%= contato ? contato.email : '' %>"
+            >
+          </div>
+
+          <button type="submit" class="btn-salvar <%= contato._id ? 'editar' : '' %>">
+            <% if (contato._id) { %>
+            <svg viewBox="0 0 24 24">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+            Salvar alterações
+            <% } else { %>
+            <svg viewBox="0 0 24 24">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <line x1="19" y1="8" x2="19" y2="14"/>
+              <line x1="22" y1="11" x2="16" y2="11"/>
+            </svg>
+            Criar contato
+            <% } %>
+          </button>
+
+        </form>
+
+        <!-- Voltar -->
+        <div class="text-center">
+          <a href="/" class="link-voltar">
+            <svg viewBox="0 0 24 24">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Voltar para a agenda
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./includes/footer'); %>
