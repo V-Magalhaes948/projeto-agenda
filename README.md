@@ -1,23 +1,18 @@
 # 📅 Projeto Agenda
 
-Uma aplicação web completa de agenda de contatos, com autenticação de usuários, cadastro, edição e remoção de contatos.
+Projeto desenvolvido durante meus estudos de Node.js e JavaScript. Trata-se de uma aplicação web de agenda de contatos com autenticação de usuários.
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Node.js** — Ambiente de execução JavaScript no servidor
-- **Express** — Framework web para Node.js
-- **MongoDB + Mongoose** — Banco de dados NoSQL e ODM
-- **EJS** — Template engine para renderização das views
-- **Webpack + Babel** — Bundler e transpilador do JavaScript do frontend
+- **Node.js** + **Express** — Servidor e rotas
+- **MongoDB + Mongoose** — Banco de dados
+- **EJS** — Template engine para as views
+- **Webpack + Babel** — Bundler do frontend
 - **bcryptjs** — Criptografia de senhas
-- **express-session + connect-mongo** — Gerenciamento de sessões persistidas no MongoDB
-- **connect-flash** — Mensagens de feedback (flash messages)
-- **helmet** — Segurança nos headers HTTP
-- **csurf** — Proteção contra ataques CSRF
-- **dotenv** — Gerenciamento de variáveis de ambiente
-- **nodemon** — Reinicialização automática do servidor em desenvolvimento
+- **express-session** — Gerenciamento de sessões
+- **dotenv** — Variáveis de ambiente
 
 ---
 
@@ -25,31 +20,17 @@ Uma aplicação web completa de agenda de contatos, com autenticação de usuár
 
 ```
 projeto-agenda/
-├── frontend/          # Arquivos JS/CSS do frontend (processados pelo Webpack)
-├── public/
-│   └── assets/
-│       └── js/        # Bundles gerados pelo Webpack
-├── src/               # Lógica do backend (models, controllers, etc.)
-├── .gitignore
-├── package.json
-├── routes.js          # Definição das rotas da aplicação
-├── server.js          # Ponto de entrada da aplicação
-└── webpack.config.js  # Configuração do Webpack
+├── frontend/        # JS/CSS do frontend
+├── public/          # Arquivos gerados pelo Webpack
+├── src/             # Models, controllers e afins
+├── routes.js        # Rotas da aplicação
+├── server.js        # Ponto de entrada
+└── webpack.config.js
 ```
 
 ---
 
-## ⚙️ Pré-requisitos
-
-Antes de começar, certifique-se de ter instalado:
-
-- [Node.js](https://nodejs.org/) (versão 16 ou superior)
-- [npm](https://www.npmjs.com/)
-- [MongoDB](https://www.mongodb.com/) (local ou via Atlas)
-
----
-
-## 🔧 Instalação e Configuração
+## ⚙️ Como rodar o projeto
 
 **1. Clone o repositório:**
 ```bash
@@ -62,43 +43,29 @@ cd projeto-agenda
 npm install
 ```
 
-**3. Configure as variáveis de ambiente:**
-
-Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
+**3. Crie um arquivo `.env` na raiz com:**
 ```env
 MONGODB_URI=mongodb://localhost:27017/projeto-agenda
 SESSION_SECRET=sua_chave_secreta_aqui
 ```
 
-**4. Execute o bundle do frontend:**
+**4. Em terminais separados, rode:**
 ```bash
-npm run dev
+npm run dev   # Webpack em modo watch
+npm start     # Servidor com nodemon
 ```
 
-**5. Inicie o servidor:**
-```bash
-npm start
-```
-
-A aplicação estará disponível em `http://localhost:3000`.
+Acesse em `http://localhost:3000`.
 
 ---
 
-## 📜 Scripts Disponíveis
+## 📚 O que aprendi com esse projeto
 
-| Script | Descrição |
-|--------|-----------|
-| `npm start` | Inicia o servidor com nodemon (hot reload) |
-| `npm run dev` | Inicia o Webpack em modo watch para o frontend |
+- Criar um servidor com Express e organizar rotas
+- Conectar e manipular dados com MongoDB e Mongoose
+- Autenticação de usuários com sessão e senhas criptografadas
+- Renderizar páginas dinâmicas com EJS
+- Configurar Webpack e Babel para o frontend
+- Boas práticas básicas de segurança (Helmet, CSRF, dotenv)
 
 ---
-
-## 🔐 Funcionalidades
-
-- Cadastro e login de usuários com senha criptografada
-- Sessões persistidas no banco de dados
-- Proteção das rotas com autenticação
-- Criação, edição e exclusão de contatos
-- Mensagens de feedback ao usuário (flash messages)
-- Proteção CSRF nas requisições
-- Headers de segurança com Helmet
