@@ -1,6 +1,6 @@
 # 📅 Projeto Agenda
 
-Projeto desenvolvido durante meus estudos de Node.js e JavaScript. Trata-se de uma aplicação web de agenda de contatos com autenticação de usuários.
+Projeto desenvolvido durante meus estudos de Node.js e JavaScript. Trata-se de uma aplicação web no padrão MVC de agenda de contatos com autenticação de usuários.
 
 ---
 
